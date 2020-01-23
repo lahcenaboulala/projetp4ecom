@@ -1,5 +1,5 @@
 package com.youcode.ecommerce.entities;
 
-public class Client extends User {
+public class Admin extends User {
 
 }

@@ -3,6 +3,6 @@ package com.youcode.ecommerce.entities;
 import javax.persistence.Entity;
 
 @Entity
-public class Discount {
+public class Author extends AuditEntities {
 
 }

@@ -1,5 +1,8 @@
 package com.youcode.ecommerce.entities;
 
-public class Review {
+import javax.persistence.Entity;
+
+@Entity
+public class Review extends AuditEntities {
 
 }

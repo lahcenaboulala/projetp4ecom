@@ -1,5 +1,10 @@
 package com.youcode.ecommerce.entities;
 
-public class Order {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "orders")
+public class Order extends AuditEntities {
 
 }

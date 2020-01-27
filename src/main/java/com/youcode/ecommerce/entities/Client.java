@@ -26,10 +26,6 @@ public class Client extends User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "email")
-	@Size(min = 3, max = 52)
-	private String email;
-
 	@Column(name = "first_name")
 	@Pattern(regexp = "^[a-zA-Z\\s]+$")
 	@Size(min = 3, max = 26)
@@ -80,5 +76,114 @@ public class Client extends User {
 	@OneToMany
 	@JoinColumn(name = "order_detail_id")
 	private List<OrderDetail> orderDetails;
+
+	public Client() {
+		super();
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public Integer getEmailVerified() {
+		return emailVerified;
+	}
+
+	public void setEmailVerified(Integer emailVerified) {
+		this.emailVerified = emailVerified;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", emailVerified=" + emailVerified + ", phone=" + phone
+				+ ", country=" + country + ", address=" + address + ", reviews=" + reviews + ", orderDetails="
+				+ orderDetails + "]";
+	}
 
 }

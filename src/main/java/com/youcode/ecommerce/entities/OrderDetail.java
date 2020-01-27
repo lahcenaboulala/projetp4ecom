@@ -83,4 +83,129 @@ public class OrderDetail extends AuditEntities {
 	@OneToMany(mappedBy = "orderDetail", cascade = CascadeType.ALL)
 	private List<Order> orders;
 
+	public OrderDetail() {
+		super();
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Float getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Float getTotalCargoPrice() {
+		return totalCargoPrice;
+	}
+
+	public void setTotalCargoPrice(Float totalCargoPrice) {
+		this.totalCargoPrice = totalCargoPrice;
+	}
+
+	public Integer getShipped() {
+		return shipped;
+	}
+
+	public void setShipped(Integer shipped) {
+		this.shipped = shipped;
+	}
+
+	public String getTrackingNumber() {
+		return trackingNumber;
+	}
+
+	public void setTrackingNumber(String trackingNumber) {
+		this.trackingNumber = trackingNumber;
+	}
+
+	public List<Shipping> getShipping() {
+		return shipping;
+	}
+
+	public void setShipping(List<Shipping> shipping) {
+		this.shipping = shipping;
+	}
+
+	public Discount getOrderDiscount() {
+		return orderDiscount;
+	}
+
+	public void setOrderDiscount(Discount orderDiscount) {
+		this.orderDiscount = orderDiscount;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDetail [id=" + id + ", city=" + city + ", state=" + state + ", zip=" + zip + ", country=" + country
+				+ ", phone=" + phone + ", totalPrice=" + totalPrice + ", totalCargoPrice=" + totalCargoPrice
+				+ ", shipped=" + shipped + ", trackingNumber=" + trackingNumber + ", shipping=" + shipping
+				+ ", orderDiscount=" + orderDiscount + ", client=" + client + ", orders=" + orders + "]";
+	}
+
 }

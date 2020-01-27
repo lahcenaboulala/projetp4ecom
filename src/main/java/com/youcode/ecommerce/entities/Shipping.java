@@ -16,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Shipping extends AuditEntities {
 
+	private static final long serialVersionUID = -7995291188980353467L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -41,5 +43,55 @@ public class Shipping extends AuditEntities {
 	@JoinColumn(name = "order_detail_id")
 	@JsonIgnore
 	private OrderDetail orderDetail;
+
+	public Shipping() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getShipName() {
+		return shipName;
+	}
+
+	public void setShipName(String shipName) {
+		this.shipName = shipName;
+	}
+
+	public String getShipAddress() {
+		return shipAddress;
+	}
+
+	public void setShipAddress(String shipAddress) {
+		this.shipAddress = shipAddress;
+	}
+
+	public String getShipAddress2() {
+		return shipAddress2;
+	}
+
+	public void setShipAddress2(String shipAddress2) {
+		this.shipAddress2 = shipAddress2;
+	}
+
+	public OrderDetail getOrderDetail() {
+		return orderDetail;
+	}
+
+	public void setOrderDetail(OrderDetail orderDetail) {
+		this.orderDetail = orderDetail;
+	}
+
+	@Override
+	public String toString() {
+		return "Shipping [id=" + id + ", shipName=" + shipName + ", shipAddress=" + shipAddress + ", shipAddress2="
+				+ shipAddress2 + ", orderDetail=" + orderDetail + "]";
+	}
 
 }

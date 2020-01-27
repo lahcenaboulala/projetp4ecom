@@ -80,4 +80,10 @@ public class Category extends AuditEntities {
 		this.subCategories = subCategories;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", label=" + label + ", category=" + category + ", subCategories=" + subCategories
+				+ ", ebooks=" + ebooks + "]";
+	}
+
 }

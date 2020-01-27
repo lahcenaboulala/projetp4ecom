@@ -21,4 +21,37 @@ public class Roles {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
 	private List<User> users;
 
+	public Roles() {
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	@Override
+	public String toString() {
+		return "Roles [id=" + id + ", type=" + type + ", users=" + users + "]";
+	}
+
 }

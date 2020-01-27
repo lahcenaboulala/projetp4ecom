@@ -15,11 +15,7 @@ public class Admin extends User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column(name = "email")
-	@Size(min = 3, max = 52)
-	private String email;
+	private Long id;
 
 	@Column(name = "first_name")
 	@Pattern(regexp = "^[a-zA-Z\\s]+$")
@@ -36,20 +32,12 @@ public class Admin extends User {
 
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getFirstName() {

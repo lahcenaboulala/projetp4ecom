@@ -16,9 +16,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class Category extends AuditEntities {
 
+	private static final long serialVersionUID = -2041894579972741705L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+
 	private String label;
 
 	@JsonBackReference
@@ -30,15 +33,27 @@ public class Category extends AuditEntities {
 	@OneToMany(mappedBy = "category")
 	private List<Category> subCategories;
 
+	@JsonManagedReference
+	@OneToMany(mappedBy = "category")
+	private List<Ebook> ebooks;
+
 	public Category() {
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public List<Ebook> getEbooks() {
+		return ebooks;
+	}
+
+	public void setEbooks(List<Ebook> ebooks) {
+		this.ebooks = ebooks;
 	}
 
 	public String getLabel() {

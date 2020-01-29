@@ -27,10 +27,10 @@ public class Category extends AuditEntities {
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
-	private Category category;
+	private Category parentCategory;
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "parentCategory")
 	private List<Category> subCategories;
 
 	@JsonManagedReference
@@ -64,12 +64,12 @@ public class Category extends AuditEntities {
 		this.label = label;
 	}
 
-	public Category getCategory() {
-		return category;
+	public Category getParentCategory() {
+		return parentCategory;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setParentCategory(Category parentCategory) {
+		this.parentCategory = parentCategory;
 	}
 
 	public List<Category> getSubCategories() {
@@ -82,8 +82,8 @@ public class Category extends AuditEntities {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", label=" + label + ", category=" + category + ", subCategories=" + subCategories
-				+ ", ebooks=" + ebooks + "]";
+		return "Category [id=" + id + ", label=" + label + ", category=" + parentCategory + ", subCategories="
+				+ subCategories + ", ebooks=" + ebooks + "]";
 	}
 
 }

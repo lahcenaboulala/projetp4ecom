@@ -31,7 +31,7 @@ public class Ebook extends AuditEntities {
 	private String keyword;
 	private File file;
 	private String cover;
-	private int sell_count;
+	private int sellCount;
 	private int stock;
 
 	@ManyToOne
@@ -113,12 +113,12 @@ public class Ebook extends AuditEntities {
 		this.cover = cover;
 	}
 
-	public int getSell_count() {
-		return sell_count;
+	public int getSellCount() {
+		return sellCount;
 	}
 
-	public void setSell_count(int sell_count) {
-		this.sell_count = sell_count;
+	public void setSellCount(int sellCount) {
+		this.sellCount = sellCount;
 	}
 
 	public int getStock() {
@@ -164,7 +164,7 @@ public class Ebook extends AuditEntities {
 	@Override
 	public String toString() {
 		return "Ebook [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price
-				+ ", keyword=" + keyword + ", file=" + file + ", cover=" + cover + ", sell_count=" + sell_count
+				+ ", keyword=" + keyword + ", file=" + file + ", cover=" + cover + ", sell_count=" + sellCount
 				+ ", stock=" + stock + ", author=" + author + ", reviews=" + reviews + ", orders=" + orders
 				+ ", category=" + category + "]";
 	}

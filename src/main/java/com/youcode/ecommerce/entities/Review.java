@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,9 +18,11 @@ public class Review extends AuditEntities {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	private int rank;
+	@Max(5)
+	@Min(1)
+	private int rate;
 
 	private String comment;
 
@@ -36,20 +40,20 @@ public class Review extends AuditEntities {
 		super();
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public int getRank() {
-		return rank;
+	public int getRate() {
+		return rate;
 	}
 
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setRate(int rate) {
+		this.rate = rate;
 	}
 
 	public String getComment() {
@@ -78,7 +82,7 @@ public class Review extends AuditEntities {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", rank=" + rank + ", comment=" + comment + ", ebook=" + ebook + ", client="
+		return "Review [id=" + id + ", rate=" + rate + ", comment=" + comment + ", ebook=" + ebook + ", client="
 				+ client + "]";
 	}
 

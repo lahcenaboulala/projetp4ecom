@@ -1,5 +1,8 @@
 package com.youcode.ecommerce.entities;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -32,10 +34,9 @@ public abstract class User extends AuditEntities {
 	@Size(min = 3, max = 52)
 	private String email;
 
-	@ManyToOne
-	@JoinColumn(name = "role_id", nullable = false)
-	@JsonIgnore
-	private Roles role;
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	private Set<Roles> roles;
 
 	public User() {
 	}
@@ -64,12 +65,12 @@ public abstract class User extends AuditEntities {
 		this.password = password;
 	}
 
-	public Roles getRole() {
-		return role;
+	public Set<Roles> getRoles() {
+		return roles;
 	}
 
-	public void setRole(Roles role) {
-		this.role = role;
+	public void setRoles(Set<Roles> roles) {
+		this.roles = roles;
 	}
 
 	public String getEmail() {
@@ -78,11 +79,6 @@ public abstract class User extends AuditEntities {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
 	}
 
 }

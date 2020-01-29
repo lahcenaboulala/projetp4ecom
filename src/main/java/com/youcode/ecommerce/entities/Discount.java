@@ -29,7 +29,7 @@ public class Discount extends AuditEntities {
 	private String status;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date expi_date;
+	private Date expirationDate;
 
 	@OneToMany(mappedBy = "orderDiscount")
 	@JsonIgnore
@@ -71,12 +71,12 @@ public class Discount extends AuditEntities {
 		this.status = status;
 	}
 
-	public Date getExpi_date() {
-		return expi_date;
+	public Date getExpirationDate() {
+		return expirationDate;
 	}
 
-	public void setExpi_date(Date expi_date) {
-		this.expi_date = expi_date;
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 
 	public List<OrderDetail> getOrderDetails() {
@@ -90,7 +90,7 @@ public class Discount extends AuditEntities {
 	@Override
 	public String toString() {
 		return "Discount [id=" + id + ", code=" + code + ", percent=" + percent + ", status=" + status + ", expi_date="
-				+ expi_date + ", orderDetails=" + orderDetails + "]";
+				+ expirationDate + ", orderDetails=" + orderDetails + "]";
 	}
 
 }

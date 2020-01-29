@@ -14,6 +14,8 @@ public interface EbookRepo extends PagingAndSortingRepository<Ebook, Long> {
 
 	List<Ebook> findAllByCategory(Pageable pageable, Category category);
 
+	List<Ebook> findAllByAuthor(Long id, Pageable pageable);
+
 	List<Ebook> findTop8ByOrderBySellCountDesc();
 
 	List<Ebook> findTop8ByCategoryAndIdIsNotOrderBySellCountDesc(Category category, Long id);

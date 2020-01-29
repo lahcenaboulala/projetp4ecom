@@ -26,6 +26,11 @@ public class ApiErrorMessage {
 		this.message = message;
 	}
 
+	public ApiErrorMessage(String message) {
+		super();
+		this.message = message;
+	}
+
 	public HttpStatus getStatus() {
 		return status;
 	}

@@ -2,6 +2,7 @@ package com.youcode.ecommerce.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Null;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Category extends AuditEntities {
@@ -24,16 +25,16 @@ public class Category extends AuditEntities {
 
 	private String label;
 
-	@JsonBackReference
+	@Null
 	@ManyToOne
-	@JoinColumn(name = "category_id", nullable = false)
+	@JoinColumn(name = "category_id")
+	@JsonIgnore
 	private Category parentCategory;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "parentCategory")
+	@OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)
 	private List<Category> subCategories;
 
-	@JsonManagedReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "category")
 	private List<Ebook> ebooks;
 

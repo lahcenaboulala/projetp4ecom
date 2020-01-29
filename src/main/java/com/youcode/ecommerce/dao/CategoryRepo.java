@@ -14,4 +14,6 @@ public interface CategoryRepo extends CrudRepository<Category, Long> {
 
 	List<Category> findAllByOrderByLabel();
 
+	List<Category> findByParentCategoryIsNull();
+
 }

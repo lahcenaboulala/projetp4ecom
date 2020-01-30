@@ -1,13 +1,13 @@
 package com.youcode.ecommerce.services.imp;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.youcode.ecommerce.dao.CategoryRepo;
 import com.youcode.ecommerce.entities.Category;
+import com.youcode.ecommerce.exceptions.ResourceNotFoundException;
 import com.youcode.ecommerce.services.CategoryService;
 
 @Service
@@ -28,8 +28,8 @@ public class CategoryServiceImp implements CategoryService {
 
 	@Override
 	public Category findByCategory(Long id) {
-		Optional<Category> optional = catRepo.findById(id);
-		return optional.isPresent() ? (Category) optional.get() : null;
+		return catRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+				"sorry the category you're trying to reach with id: " + id + " is not found"));
 	}
 
 	@Override

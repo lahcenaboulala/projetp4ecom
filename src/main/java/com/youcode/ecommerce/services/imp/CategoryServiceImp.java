@@ -1,6 +1,7 @@
 package com.youcode.ecommerce.services.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,22 @@ public class CategoryServiceImp implements CategoryService {
 	@Override
 	public Category findByName(String category) {
 		return catRepo.findByLabel(category);
+	}
+
+	@Override
+	public void delete(long id) {
+		catRepo.deleteById(id);
+
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		return catRepo.findByParentCategoryIsNull();
+	}
+
+	@Override
+	public Optional<Category> getCategory(long id) {
+		return catRepo.findById(id);
 	}
 
 }

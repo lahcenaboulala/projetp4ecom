@@ -10,10 +10,10 @@ import com.youcode.ecommerce.entities.Category;
 @Repository
 public interface CategoryRepo extends CrudRepository<Category, Long> {
 
-	Category findByLabel(String label);
+	public Category findByLabel(String label);
 
-	List<Category> findAllByOrderByLabel();
+	public List<Category> findAllByOrderByLabel();
 
-	List<Category> findByParentCategoryIsNull();
+	public List<Category> findByParentCategoryIsNull();
 
 }

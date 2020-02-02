@@ -64,6 +64,11 @@ import { SideBarMenuComponent } from './Layouts/Menu/SidebarMenu/SidebarMenu.com
 import { PaymentDetailSideBarComponent } from './Layouts/PaymentDetailSideBar/PaymentDetailSideBar.component';
 import { FixedHeaderComponent } from './Layouts/Header/FixedHeader/FixedHeader.component';
 
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { reducers } from "./store/app-reduces";
+import { CookieService } from "ngx-cookie-service";
+
 
 /********** Custom option for ngx-translate ******/
 export function createTranslateLoader(http: HttpClient) {
@@ -88,6 +93,7 @@ export function createTranslateLoader(http: HttpClient) {
    imports: [
       BrowserModule.withServerTransition({ appId: 'embryo-seo-pre' }),
       BrowserAnimationsModule,
+      StoreModule.forRoot(reducers),
       RouterModule.forRoot(AppRoutes, { onSameUrlNavigation: 'reload' }),
       GlobalModule,
       TemplatesModule,
@@ -135,6 +141,7 @@ export function createTranslateLoader(http: HttpClient) {
       SlickCarouselModule
    ],
    providers: [
+      CookieService,
       MenuItems,
       EmbryoService
    ],

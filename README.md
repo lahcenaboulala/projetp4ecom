@@ -21,6 +21,13 @@ This project does not have versioning and made with learning purposes.
 
 ![alt text](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/logo.png)
 
+## Class Diagram
+![alt text](https://github.com/KhalilKes/book_cave/blob/master/rand_folder/class-diagram.png)
+
+## Front End
+![alt text](https://github.com/KhalilKes/book_cave/blob/master/rand_folder/ecomm1.jpg)
+
+
 
 ## Dev team
 

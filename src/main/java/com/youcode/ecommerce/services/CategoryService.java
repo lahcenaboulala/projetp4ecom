@@ -1,17 +1,24 @@
 package com.youcode.ecommerce.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.youcode.ecommerce.entities.Category;
 
 public interface CategoryService {
 
-	Category findByName(String category);
+	public Category findByName(String category);
 
-	List<Category> findAll();
+	public Optional<Category> getCategory(long id);
 
-	Category findByCategory(Long id);
+	public List<Category> findAll();
 
-	Category save(Category category);
+	public Category findByCategory(Long id);
+
+	public Category save(Category category);
+
+	public void delete(long id);
+
+	public List<Category> getAllCategories();
 
 }

@@ -42,5 +42,12 @@ public class UserService implements UserDetailsService {
 		throw new UsernameNotFoundException("User not found : " + username);
 	}
 
+<<<<<<< HEAD
+=======
+	// roles part
+//	private List<SimpleGrantedAuthority> getAuthority() {
+//        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+//    }
+>>>>>>> 67ce92c278ea5fbb63e0134a15b87401ffb8047b
 
 }

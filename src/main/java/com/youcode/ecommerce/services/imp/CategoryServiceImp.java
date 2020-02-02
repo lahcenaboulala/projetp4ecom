@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.youcode.ecommerce.dao.CategoryRepo;
 import com.youcode.ecommerce.entities.Category;
+import com.youcode.ecommerce.exceptions.ResourceNotFoundException;
 import com.youcode.ecommerce.services.CategoryService;
 
 @Service
@@ -28,8 +29,8 @@ public class CategoryServiceImp implements CategoryService {
 
 	@Override
 	public Category findByCategory(Long id) {
-		Optional<Category> optional = catRepo.findById(id);
-		return optional.isPresent() ? (Category) optional.get() : null;
+		return catRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+				"sorry the category you're trying to reach with id: " + id + " is not found"));
 	}
 
 	@Override
@@ -40,6 +41,22 @@ public class CategoryServiceImp implements CategoryService {
 	@Override
 	public Category findByName(String category) {
 		return catRepo.findByLabel(category);
+	}
+
+	@Override
+	public void delete(long id) {
+		catRepo.deleteById(id);
+
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		return catRepo.findByParentCategoryIsNull();
+	}
+
+	@Override
+	public Optional<Category> getCategory(long id) {
+		return catRepo.findById(id);
 	}
 
 }

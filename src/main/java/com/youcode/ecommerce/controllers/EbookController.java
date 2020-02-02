@@ -7,6 +7,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +18,7 @@ import com.youcode.ecommerce.entities.Category;
 import com.youcode.ecommerce.entities.Ebook;
 import com.youcode.ecommerce.services.CategoryService;
 import com.youcode.ecommerce.services.EbookService;
+import com.youcode.ecommerce.services.imp.var;
 
 @RestController
 public class EbookController extends ApiController {
@@ -106,5 +109,7 @@ public class EbookController extends ApiController {
 		List returnList = ebookService.searchEbooks(keyword, page, size);
 		return new ResponseEntity<List>(returnList, HttpStatus.OK);
 	}
+	
+
 
 }

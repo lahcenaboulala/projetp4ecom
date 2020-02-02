@@ -1,19 +1,24 @@
 package com.youcode.ecommerce.services.imp;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.security.Principal;
 
 import com.youcode.ecommerce.dao.RolesRepo;
 import com.youcode.ecommerce.dao.UserRepo;
 import com.youcode.ecommerce.entities.User;
 
 @Service
+@EnableAutoConfiguration
 public class UserService implements UserDetailsService {
 
 	@Autowired
@@ -36,5 +41,6 @@ public class UserService implements UserDetailsService {
 		}
 		throw new UsernameNotFoundException("User not found : " + username);
 	}
+
 
 }

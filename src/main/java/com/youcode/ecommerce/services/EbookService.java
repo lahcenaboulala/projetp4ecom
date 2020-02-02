@@ -2,7 +2,9 @@ package com.youcode.ecommerce.services;
 
 import java.util.List;
 
+import org.aspectj.weaver.ast.Var;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.youcode.ecommerce.entities.Category;
 import com.youcode.ecommerce.entities.Ebook;
@@ -22,5 +24,7 @@ public interface EbookService {
 	List<Ebook> getRelatedEbooks(Category category, Long id);
 
 	List<Ebook> searchEbooks(String keyword, Integer page, Integer size);
+
+	
 
 }

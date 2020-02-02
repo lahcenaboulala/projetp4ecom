@@ -24,4 +24,4 @@ public interface EbookRepo extends PagingAndSortingRepository<Ebook, Long> {
 
 	List<Ebook> findAllByTitleContainingIgnoreCase(String name, Pageable pageable);
 
-}
+	}

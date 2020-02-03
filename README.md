@@ -19,13 +19,13 @@ This project does not have versioning and made with learning purposes.
 
 ## Swagger routes http://localhost:8080/swagger-ui.html#/
 
-![alt text](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/logo.png)
+![logo screen](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/logo.png)
 
 ## Class Diagram
-![alt text](https://github.com/KhalilKes/book_cave/blob/master/brand/class-diagram.png)
+![class digram](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/class-diagram.png)
 
 ## Front End
-![alt text](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/ecomm1.jpg)
+![mock up](https://github.com/KhalilKes/book_cave/blob/master/brand_folder/ecomm1.jpg)
 
 
 

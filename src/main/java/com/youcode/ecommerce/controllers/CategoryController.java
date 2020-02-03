@@ -27,10 +27,6 @@ public class CategoryController extends ApiController {
 		return catService.getAllCategories();
 	}
 
-<<<<<<< HEAD
-	@PostMapping("/categories")
-	public Category createCategory(@RequestBody Category category) {
-=======
 	@GetMapping("/categories/{id}")
 	public Category getCategory(@PathVariable long id) {
 		return catService.findByCategory(id);
@@ -39,7 +35,6 @@ public class CategoryController extends ApiController {
 	@PostMapping("/admin/categories")
 	public Category createCategory(@RequestBody Category category) {
 		category.checkCategory();
->>>>>>> 67ce92c278ea5fbb63e0134a15b87401ffb8047b
 		return catService.save(category);
 	}
 

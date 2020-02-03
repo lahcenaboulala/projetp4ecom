@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { EmbryoService } from '../../../Services/Embryo.service';
 
 @Component({
-  selector: 'app-HomeThree',
-  templateUrl: './HomeThree.component.html',
-  styleUrls: ['./HomeThree.component.scss']
+   selector: 'app-HomeThree',
+   templateUrl: './HomeThree.component.html',
+   styleUrls: ['./HomeThree.component.scss']
 })
 export class HomeThreeComponent implements OnInit {
 
-   categories : any = {
-      clothing     : [],
-      shoes        : [],
-      accessories  : [],
-      gadgets      : []
+   categories: any = {
+      clothing: [],
+      shoes: [],
+      accessories: [],
+      gadgets: []
    }
-   products : any;
-   allProducts : any;
-   newProductsSliderData : any;
+   products: any;
+   allProducts: any;
+   newProductsSliderData: any;
    slideConfig = {
       slidesToShow: 4,
-      slidesToScroll:2,
+      slidesToScroll: 2,
       autoplay: true,
       autoplaySpeed: 2000,
       dots: false,
@@ -29,23 +29,23 @@ export class HomeThreeComponent implements OnInit {
             settings: {
                arrows: false,
                slidesToShow: 2,
-               slidesToScroll:1
+               slidesToScroll: 1
             }
-            },
+         },
          {
             breakpoint: 768,
             settings: {
                arrows: false,
                slidesToShow: 2,
-               slidesToScroll:1
+               slidesToScroll: 1
             }
-            },
+         },
          {
             breakpoint: 480,
             settings: {
                arrows: false,
                slidesToShow: 1,
-               slidesToScroll:1
+               slidesToScroll: 1
             }
          }
       ]
@@ -53,7 +53,7 @@ export class HomeThreeComponent implements OnInit {
 
    rtlSlideConfig = {
       slidesToShow: 4,
-      slidesToScroll:4,
+      slidesToScroll: 4,
       autoplay: true,
       autoplaySpeed: 2000,
       dots: false,
@@ -64,29 +64,29 @@ export class HomeThreeComponent implements OnInit {
             settings: {
                arrows: false,
                slidesToShow: 2,
-               slidesToScroll:2
+               slidesToScroll: 2
             }
-            },
+         },
          {
             breakpoint: 768,
             settings: {
                arrows: false,
                slidesToShow: 2,
-               slidesToScroll:2
+               slidesToScroll: 2
             }
-            },
+         },
          {
             breakpoint: 480,
             settings: {
                arrows: false,
                slidesToShow: 1,
-               slidesToScroll:1
+               slidesToScroll: 1
             }
          }
       ]
    };
 
-   constructor(public embryoService : EmbryoService) { }
+   constructor(public embryoService: EmbryoService) { }
 
    ngOnInit() {
       this.getProducts();
@@ -100,8 +100,8 @@ export class HomeThreeComponent implements OnInit {
    public getProductsResponse(res) {
       this.products = res;
       this.allProducts = ((res.men.concat(res.women)).concat(res.gadgets)).concat(res.accessories);
-     
-      for(let product of this.allProducts) {
+
+      for (let product of this.allProducts) {
          switch (product.category_type) {
             case "clothing":
                this.categories.clothing.push(product);
@@ -118,7 +118,7 @@ export class HomeThreeComponent implements OnInit {
             case "gadgets":
                this.categories.gadgets.push(product);
                break;
-            
+
             default:
                // code...
                break;
@@ -131,20 +131,20 @@ export class HomeThreeComponent implements OnInit {
       switch (tabIndex) {
          case 0:
             this.newProductsSliderData = this.allProducts;
-         break;
+            break;
 
          case 1:
             this.newProductsSliderData = this.products.men;
-         break;
+            break;
 
          case 2:
             this.newProductsSliderData = this.products.women;
-         break;
+            break;
 
          case 3:
             this.newProductsSliderData = this.products.gadgets;
-         break;
-         
+            break;
+
          default:
             // code...
             break;

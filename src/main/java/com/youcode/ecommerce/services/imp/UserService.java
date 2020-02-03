@@ -1,6 +1,5 @@
 package com.youcode.ecommerce.services.imp;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.security.Principal;
 
 import com.youcode.ecommerce.dao.RolesRepo;
 import com.youcode.ecommerce.dao.UserRepo;
@@ -42,12 +39,9 @@ public class UserService implements UserDetailsService {
 		throw new UsernameNotFoundException("User not found : " + username);
 	}
 
-<<<<<<< HEAD
-=======
 	// roles part
-//	private List<SimpleGrantedAuthority> getAuthority() {
-//        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
-//    }
->>>>>>> 67ce92c278ea5fbb63e0134a15b87401ffb8047b
+//		private List<SimpleGrantedAuthority> getAuthority() {
+//	        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+//	    }
 
 }

@@ -2,11 +2,16 @@ package com.youcode.ecommerce.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,14 +25,11 @@ import com.youcode.ecommerce.services.EbookService;
 @RestController
 public class EbookController extends ApiController {
 
-	private final EbookService ebookService;
-	private final CategoryService catService;
+	@Autowired
+	EbookService ebookService;
 
-	public EbookController(EbookService ebookService, CategoryService catService) {
-		super();
-		this.ebookService = ebookService;
-		this.catService = catService;
-	}
+	@Autowired
+	CategoryService catService;
 
 	private boolean isBlank(String param) {
 		return param.isEmpty() || param.trim().equals("");
@@ -77,8 +79,8 @@ public class EbookController extends ApiController {
 
 	}
 
-	@RequestMapping(value = "/ebook", method = RequestMethod.GET, params = "id")
-	public ResponseEntity getFullById(@RequestParam("id") Long id) {
+	@GetMapping("/ebook/{id}")
+	public ResponseEntity getFullById(@PathVariable("id") Long id) {
 		Ebook ebook = ebookService.findbyId(id);
 		if (ebook == null) {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -105,6 +107,17 @@ public class EbookController extends ApiController {
 			@RequestParam("keyword") String keyword) {
 		List returnList = ebookService.searchEbooks(keyword, page, size);
 		return new ResponseEntity<List>(returnList, HttpStatus.OK);
+	}
+
+	@PostMapping("/admin/ebook")
+	public Ebook createEbook(@RequestBody Ebook ebook) {
+		return ebookService.save(ebook);
+	}
+
+	@DeleteMapping("/admin/ebook/{id}")
+	public ResponseEntity<String> deleteProduct(@PathVariable("id") Long id) {
+		ebookService.deleteById(id);
+		return new ResponseEntity<String>("the ebook is deleted successfully", HttpStatus.OK);
 	}
 
 }

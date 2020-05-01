@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.youcode.ecommerce.services.imp.UserService;
+import com.youcode.ecommerce.services.imp.UserServiceImp;
 
 @Configuration
 @EnableWebSecurity
@@ -24,15 +24,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtEntryPoint jwtAuthEntryPoint;
 	@Autowired
-	private UserService userService;
+	private UserServiceImp userService;
 	@Autowired
 	private JwtRequestFilter jwtReqFilter;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
-				.antMatchers("/users/login", "/auth/login", "/users").permitAll()
-				.antMatchers("/api/ebooks/**", "/api/categories/**").permitAll().anyRequest().permitAll().and()
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth").permitAll()
+				.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security",
+						"/swagger-ui.html", "/webjars/**")
+				.permitAll().antMatchers("/api/ebooks/**", "/api/categories/**").permitAll().and().authorizeRequests()
+				.antMatchers("/api/admin/**").hasAuthority("ADMIN").anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

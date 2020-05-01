@@ -24,7 +24,7 @@ public class Category extends AuditEntities {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "label")
+	@Column(name = "label", nullable = false)
 	private String label;
 
 	@ManyToOne

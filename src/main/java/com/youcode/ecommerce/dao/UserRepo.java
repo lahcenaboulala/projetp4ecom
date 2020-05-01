@@ -9,6 +9,8 @@ import com.youcode.ecommerce.entities.User;
 public interface UserRepo extends JpaRepository<User, Long> {
 	User findByEmail(String email);
 
+	User findByUsername(String username);
+
 	Boolean existsByEmail(String email);
 
 }

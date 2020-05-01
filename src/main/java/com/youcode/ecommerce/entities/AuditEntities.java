@@ -25,7 +25,7 @@ public abstract class AuditEntities implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreatedDate
-	private Date CreatedAt;
+	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at", nullable = false)
@@ -33,11 +33,11 @@ public abstract class AuditEntities implements Serializable {
 	private Date updatedAt;
 
 	public Date getCreatedAt() {
-		return CreatedAt;
+		return createdAt;
 	}
 
 	public void setCreatedAt(Date createdAt) {
-		CreatedAt = createdAt;
+		this.createdAt = createdAt;
 	}
 
 	public Date getUpdatedAt() {

@@ -20,7 +20,7 @@ import com.youcode.ecommerce.config.JwtTokenUtil;
 import com.youcode.ecommerce.entities.JwtRequest;
 import com.youcode.ecommerce.entities.JwtResponse;
 import com.youcode.ecommerce.entities.User;
-import com.youcode.ecommerce.services.imp.UserService;
+import com.youcode.ecommerce.services.imp.UserServiceImp;
 
 @RestController
 @CrossOrigin
@@ -31,9 +31,9 @@ public class AuthController extends ApiController {
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
 	@Autowired
-	private UserService userService;
+	private UserServiceImp userService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	public ResponseEntity<?> createAutheticationToken(@RequestBody JwtRequest authRequest) throws Exception {
 
 		authenticate(authRequest.getUsername(), authRequest.getPassword());

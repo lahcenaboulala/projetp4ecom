@@ -11,12 +11,12 @@ import com.youcode.ecommerce.entities.Roles;
 import com.youcode.ecommerce.exceptions.ResourceNotFoundException;
 
 @Service
-public class RoleService {
+public class RoleServiceImp {
 
 	private final RolesRepo rolesRepo;
 
 	@Autowired
-	public RoleService(RolesRepo rolesRepo) {
+	public RoleServiceImp(RolesRepo rolesRepo) {
 		this.rolesRepo = rolesRepo;
 	}
 

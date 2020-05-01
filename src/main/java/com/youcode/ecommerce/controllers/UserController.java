@@ -1,12 +1,5 @@
 package com.youcode.ecommerce.controllers;
 
+public class UserController extends ApiController {
 
-public class UserController extends ApiController{
-
-	
-	
-	
-	
-	
-	
 }

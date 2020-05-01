@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import com.youcode.ecommerce.dao.EbookRepo;
-import com.youcode.ecommerce.dao.EbookRepository;
 import com.youcode.ecommerce.entities.Category;
 import com.youcode.ecommerce.entities.Ebook;
 import com.youcode.ecommerce.services.EbookService;
@@ -16,16 +16,9 @@ import com.youcode.ecommerce.services.EbookService;
 @Service
 public class EbookServiceImp implements EbookService {
 
-	private final EbookRepo ebookRepo;
-	private final EbookRepository ebookRepository;
-
 	@Autowired
-	public EbookServiceImp(EbookRepo ebookRepo, EbookRepository ebookRepository) {
-		this.ebookRepo = ebookRepo;
-		this.ebookRepository = ebookRepository;
-	}
+	EbookRepo ebookRepo;
 
-	
 	@Override
 	public Ebook findbyId(Long id) {
 		Optional<Ebook> optional = ebookRepo.findById(id);
@@ -70,9 +63,16 @@ public class EbookServiceImp implements EbookService {
 		PageRequest pageRequest = PageRequest.of(page, size);
 		return ebookRepo.findAllByTitleContainingIgnoreCase(keyword, pageRequest);
 	}
-	
 
-	
-	
+	@Override
+	public Ebook save(Ebook eBook) {
+		return ebookRepo.save(eBook);
+	}
+
+	@Override
+	public void deleteById(long id) {
+		ebookRepo.deleteById(id);
+
+	}
 
 }

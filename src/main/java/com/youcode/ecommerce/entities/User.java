@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,16 +26,16 @@ public abstract class User extends AuditEntities {
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 
-	@Column
+	@Column(nullable = false)
 	private String username;
-	@Column
+	@Column(nullable = false)
 	private String password;
 
 	@Column(name = "email")
 	@Size(min = 3, max = 52)
 	private String email;
 
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	private Set<Roles> roles;
 

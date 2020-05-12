@@ -24,6 +24,7 @@ public abstract class User extends AuditEntities {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
 	@Column(nullable = false)

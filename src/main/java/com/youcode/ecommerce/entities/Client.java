@@ -6,9 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,10 +18,6 @@ import javax.validation.constraints.Size;
 public class Client extends User {
 
 	private static final long serialVersionUID = -5500533206342276021L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	@Column(name = "first_name")
 	@Pattern(regexp = "^[a-zA-Z\\s]+$")
@@ -80,14 +73,6 @@ public class Client extends User {
 	public Client() {
 		super();
 
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -180,10 +165,9 @@ public class Client extends User {
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", city=" + city
-				+ ", state=" + state + ", zip=" + zip + ", emailVerified=" + emailVerified + ", phone=" + phone
-				+ ", country=" + country + ", address=" + address + ", reviews=" + reviews + ", orderDetails="
-				+ orderDetails + "]";
+		return "Client [ firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
+				+ ", zip=" + zip + ", emailVerified=" + emailVerified + ", phone=" + phone + ", country=" + country
+				+ ", address=" + address + ", reviews=" + reviews + ", orderDetails=" + orderDetails + "]";
 	}
 
 }

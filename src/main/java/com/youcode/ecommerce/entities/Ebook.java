@@ -1,9 +1,10 @@
 package com.youcode.ecommerce.entities;
 
-import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,8 +30,10 @@ public class Ebook extends AuditEntities {
 	private String description;
 	private float price;
 	private String keyword;
-	private File file;
-	private String cover;
+	@Column(name = "cover", length = 1000)
+	private byte[] cover;
+
+	@JsonIgnore
 	private int sellCount;
 	private int stock;
 
@@ -97,19 +100,11 @@ public class Ebook extends AuditEntities {
 		this.keyword = keyword;
 	}
 
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
-	}
-
-	public String getCover() {
+	public byte[] getCover() {
 		return cover;
 	}
 
-	public void setCover(String cover) {
+	public void setCover(byte[] cover) {
 		this.cover = cover;
 	}
 
@@ -164,9 +159,9 @@ public class Ebook extends AuditEntities {
 	@Override
 	public String toString() {
 		return "Ebook [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price
-				+ ", keyword=" + keyword + ", file=" + file + ", cover=" + cover + ", sell_count=" + sellCount
-				+ ", stock=" + stock + ", author=" + author + ", reviews=" + reviews + ", orders=" + orders
-				+ ", category=" + category + "]";
+				+ ", keyword=" + keyword + ", cover=" + Arrays.toString(cover) + ", sellCount=" + sellCount + ", stock="
+				+ stock + ", author=" + author + ", reviews=" + reviews + ", orders=" + orders + ", category="
+				+ category + "]";
 	}
 
 }

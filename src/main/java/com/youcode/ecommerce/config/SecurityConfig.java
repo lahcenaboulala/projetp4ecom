@@ -33,9 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth").permitAll()
 				.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security",
 						"/swagger-ui.html", "/webjars/**")
-				.permitAll().antMatchers("/api/ebooks/**", "/api/categories/**").permitAll().and().authorizeRequests()
-				.antMatchers("/api/admin/**").hasAuthority("ADMIN").anyRequest().authenticated().and()
-				.exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and().sessionManagement()
+				.permitAll().antMatchers("/api/ebooks/**", "/api/categories/**", "/api/authors/**").permitAll().and()
+				.authorizeRequests().antMatchers("/api/admin/**").hasAuthority("ADMIN").anyRequest().authenticated()
+				.and().exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		// filter to validate the tokens

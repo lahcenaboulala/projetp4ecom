@@ -51,14 +51,6 @@ const HeaderOneItems = [
       }
     ]
   },
-
-
-  {
-    state: 'products/accessories',
-    name: "ACCESSORIES",
-    type: "link",
-    icon: 'party_mode'
-  },
   {
     state: 'products',
     name: "CATEGORIES",

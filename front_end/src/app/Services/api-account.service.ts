@@ -18,7 +18,7 @@ export class ApiAccountService {
   public nameTerms = new Subject<string>();
   public name$ = this.nameTerms.asObservable();
 
-  url: string = 'http://localhost:8080/api/authenticate';
+  url: string = 'http://localhost:8080/api/auth';
   securedUrl: string = 'http://localhost:8080/api/secured/account';
 
 
@@ -31,7 +31,7 @@ export class ApiAccountService {
   }
 
   login(loginForm: any): Observable<JwtResponse> {
-    const url = 'http://localhost:8080/api/authenticate';
+    const url = 'http://localhost:8080/api/auth';
 
     return this.http.post<JwtResponse>(url, loginForm).pipe(
       tap(user => {

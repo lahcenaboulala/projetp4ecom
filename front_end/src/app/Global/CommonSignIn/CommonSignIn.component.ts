@@ -8,6 +8,7 @@ import * as fromApp from "../../store/app-reduces";
 import * as AuthActions from '../../store/auth/auth-actions';
 import { ApiAccountService } from 'src/app/Services/api-account.service';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'embryo-SignIn',
@@ -32,18 +33,17 @@ export class CommonSignInComponent implements OnInit {
     });
 
   }
-
-
   onSubmitted() {
     console.log(this.signInForm.value.username + " " + this.signInForm.value.password);
-
     this.test.login(this.signInForm)
-
-
-    // this.store.dispatch(new AuthActions.SignIn({
-    //   username: this.signInForm.value.username,
-    //   password: this.signInForm.value.password
-    // }));
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(["/"]);
+        },
+        error => {
+          console.log("error")
+        });
   }
 
 }

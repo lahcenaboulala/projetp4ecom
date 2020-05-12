@@ -39,7 +39,7 @@ public class Ebook extends AuditEntities {
 
 	@ManyToOne
 	@JoinColumn(name = "author_id", nullable = false)
-	@JsonIgnore
+	@JsonIgnoreProperties("ebooks")
 	private Author author;
 
 	@OneToMany(mappedBy = "ebook", cascade = CascadeType.ALL, orphanRemoval = true)

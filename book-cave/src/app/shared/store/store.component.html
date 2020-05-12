@@ -17,11 +17,11 @@
             {{book.title}}
           </h4>
           <p>{{book.description}}</p>
-          <p>price : {{book.price}} DHs</p>
-          <p> stock : {{book.stock}}</p>
-          <mat-chip-list aria-label="Fish selection">
-            <mat-chip color="primary" selected>{{book.category.label}}</mat-chip>
-
+          <p>written by : <span>{{book.author.name}}</span></p>
+          <mat-chip color="accent" selected class="mb-2">{{book.price}} DHs</mat-chip>
+        <mat-chip-list aria-label="book selection" class="d-flex flex-column">
+          <mat-chip>Stock: {{book.stock}}</mat-chip>     
+          <mat-chip color="primary" selected>{{book.category.label}}</mat-chip>
           </mat-chip-list>
         </mat-card-content>
         <mat-card-actions>

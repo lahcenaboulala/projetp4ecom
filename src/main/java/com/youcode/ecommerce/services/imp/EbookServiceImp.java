@@ -1,7 +1,6 @@
 package com.youcode.ecommerce.services.imp;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.youcode.ecommerce.dao.EbookRepo;
 import com.youcode.ecommerce.entities.Category;
 import com.youcode.ecommerce.entities.Ebook;
+import com.youcode.ecommerce.exceptions.ResourceNotFoundException;
 import com.youcode.ecommerce.services.EbookService;
 
 @Service
@@ -21,8 +21,8 @@ public class EbookServiceImp implements EbookService {
 
 	@Override
 	public Ebook findbyId(Long id) {
-		Optional<Ebook> optional = ebookRepo.findById(id);
-		return optional.isPresent() ? (Ebook) optional.get() : null;
+		return ebookRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+				"sorry the category you're trying to reach with id: " + id + " is not found"));
 	}
 
 	@Override

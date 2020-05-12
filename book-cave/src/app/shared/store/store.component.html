@@ -11,7 +11,7 @@
 
     <div *ngFor="let book of ebooks" class="col-md-4">
       <mat-card class="example-card m-2">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image src="../../../assets/img/logo.png" alt="books">
         <mat-card-content>
           <h4>
             {{book.title}}
@@ -37,5 +37,5 @@
   </div>
 </div>
 
-<mat-paginator [length]="ebooks.length" [pageSize]="1" [pageSizeOptions]="[1, 2, 3, 4, 5]">
+<mat-paginator [length]="15" [pageSize]="3" [pageSizeOptions]="[1, 2, 3, 6, 9]">
 </mat-paginator>

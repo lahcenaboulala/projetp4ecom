@@ -17,7 +17,15 @@ export class StoreComponent implements OnInit, AfterViewInit {
   page: any;
   categories: any[] = [];
   ebooks: any[] = [];
-  private querySub: Subscription;
+
+  images: string[] = [
+    "macbeth.jpg",
+    "tempest.jpg",
+    "alchemist.jpg",
+    "hamlet.jpg",
+    "kinglear.jpg"
+  ]
+
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   constructor(private serviceCat: CategoryService, private ebookService: EbookService, private route: ActivatedRoute) { }
@@ -27,7 +35,7 @@ export class StoreComponent implements OnInit, AfterViewInit {
       this.categories = data;
     });
 
-    this.ebookService.getAll(0, 6).subscribe(data => {
+    this.ebookService.getAll(0, 3).subscribe(data => {
       this.ebooks = data;
     });
 

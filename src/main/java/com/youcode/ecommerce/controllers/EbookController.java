@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.youcode.ecommerce.entities.Author;
 import com.youcode.ecommerce.entities.Category;
 import com.youcode.ecommerce.entities.Ebook;
+import com.youcode.ecommerce.services.AuthorService;
 import com.youcode.ecommerce.services.CategoryService;
 import com.youcode.ecommerce.services.EbookService;
 
@@ -37,6 +39,9 @@ public class EbookController extends ApiController {
 
 	@Autowired
 	CategoryService catService;
+
+	@Autowired
+	AuthorService authorService;
 
 	private boolean isBlank(String param) {
 		return param.isEmpty() || param.trim().equals("");
@@ -116,8 +121,13 @@ public class EbookController extends ApiController {
 		return new ResponseEntity<List>(returnList, HttpStatus.OK);
 	}
 
-	@PostMapping("/admin/ebook")
-	public Ebook createEbook(@RequestBody Ebook ebook) {
+	@PostMapping("/admin/ebook/{authorId}/{categoryId}")
+	public Ebook createEbook(@PathVariable("authorId") Long authorId, @PathVariable("categoryId") Long categoryId,
+			@RequestBody Ebook ebook) {
+		Author author = authorService.findById(authorId);
+		Category category = catService.findByCategory(categoryId);
+		ebook.setCategory(category);
+		ebook.setAuthor(author);
 		return ebookService.save(ebook);
 	}
 

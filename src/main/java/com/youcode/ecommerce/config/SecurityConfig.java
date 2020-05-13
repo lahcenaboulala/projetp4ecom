@@ -35,8 +35,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 						"/swagger-ui.html", "/webjars/**")
 				.permitAll().antMatchers("/api/ebooks/**", "/api/categories/**", "/api/authors/**").permitAll().and()
 				.authorizeRequests().antMatchers("/api/admin/**").hasAuthority("ADMIN").anyRequest().authenticated()
-				.and().exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.and().authorizeRequests().antMatchers("/api/client/**").hasAuthority("CLIENT").anyRequest()
+				.authenticated().and().exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		// filter to validate the tokens
 		http.addFilterBefore(jwtReqFilter, UsernamePasswordAuthenticationFilter.class);

@@ -6,6 +6,7 @@ import { StoreComponent } from './shared/store/store.component';
 import { SetbooksComponent } from './admin/setbooks/setbooks.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './helpers/auth.guard';
+import { CartComponent } from './shared/cart/cart.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent },
   { path: 'setbooks', component: SetbooksComponent, canActivate: [AuthGuard] },
   { path: 'settings', component: SettingsComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'store', component: StoreComponent },
   { path: '**', redirectTo: '/aboutus', pathMatch: 'full' },

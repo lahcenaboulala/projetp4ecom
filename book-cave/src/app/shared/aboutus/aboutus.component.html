@@ -2,7 +2,7 @@
 
 <mat-tab-group [backgroundColor]="'primary'" [color]="'warn'">
   <mat-tab label="FAQ">
-    <div class="container">
+    <div class="container m-5">
       <p>The easiest way for you to return the merchandise is to get a pre-paid label by logging in at Zappos.com
       </p>
       <ol>
@@ -42,31 +42,43 @@
   </mat-tab>
   <mat-tab label="The team">
     <div class="container">
-      <ul>
-        <li>Khalil</li>
-        <li>Hassan</li>
-        <li>Abdellah</li>
-        <li>Lhssan</li>
-      </ul>
+      <mat-chip-list aria-label="team selection" class="m-5">
+        <mat-chip *ngFor="let member of team" color="primary" selected>{{member}}</mat-chip>
+      </mat-chip-list>
     </div>
 
   </mat-tab>
   <mat-tab label="Terms">
-    <div class="container">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magni quae hic, odio harum
-      libero quasi corrupti itaque tenetur aliquid natus omnis ullam sed velit iusto. Tempora dolores ratione voluptas?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatibus maxime laborum sit deleniti minima hic
-      est tempore ipsum iusto a quis incidunt delectus, amet sed magni voluptas nostrum. Quasi.
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in! Et quo minus deleniti. Ipsam adipisci,
-      incidunt
-      eveniet labore voluptatum debitis! Rerum voluptatem optio ullam esse repellendus similique, nemo nam?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, tempore? Perferendis, ullam odit? Asperiores
-      cupiditate, nobis consequuntur perferendis quos, fuga suscipit aliquid explicabo cum quis modi, ab nam odit unde?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sint dicta iure culpa sequi laboriosam dolore
-      nostrum
-      ut ullam, officiis vero nihil! Iure cupiditate dolor architecto natus tempore, consequatur cumque?
+    <div class="container m-5">
+      <strong>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus magni quae hic, odio harum
+        libero quasi corrupti itaque tenetur aliquid natus omnis ullam sed velit iusto. Tempora dolores ratione
+        voluptas?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatibus maxime laborum sit deleniti minima
+        hic
+        est tempore ipsum iusto a quis incidunt delectus, amet sed magni voluptas nostrum. Quasi.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in! Et quo minus deleniti. Ipsam adipisci,
+        incidunt
+        eveniet labore voluptatum debitis! Rerum voluptatem optio ullam esse repellendus similique, nemo nam?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, tempore? Perferendis, ullam odit? Asperiores
+        cupiditate, nobis consequuntur perferendis quos, fuga suscipit aliquid explicabo cum quis modi, ab nam odit
+        unde?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sint dicta iure culpa sequi laboriosam dolore
+        nostrum
+        ut ullam, officiis vero nihil! Iure cupiditate dolor architecto natus tempore, consequatur cumque?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut adipisci voluptates facilis, aliquid ea tempore,
+        laboriosam pariatur ab, obcaecati sed commodi. Maxime quod modi nisi provident doloremque neque a autem.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam, qui inventore laudantium harum rerum
+        fugit nam in provident debitis. Minus architecto, iure amet libero porro officia laudantium iste magni?
+      </strong>
     </div>
 
   </mat-tab>
-  <mat-tab label="Special thanks"> thanks LOL</mat-tab>
+  <mat-tab label="Special thanks">
+    <div class="m-5 d-flex justify-content-center align-items-center">
+      <button mat-flat-button color="accent" (click)="openSnackBar()" aria-label="Show an example snack-bar">
+        click me for surprise 😉
+      </button>
+    </div>
+  </mat-tab>
 </mat-tab-group>

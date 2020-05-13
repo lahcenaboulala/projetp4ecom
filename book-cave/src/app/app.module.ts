@@ -45,6 +45,7 @@ import { ProfileComponent } from './clients/profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { CartComponent } from './shared/cart/cart.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     SetbooksComponent,
     PaginatorComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
   ],
   imports: [
     HttpClientModule,

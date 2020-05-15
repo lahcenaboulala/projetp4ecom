@@ -1,9 +1,8 @@
 <mat-toolbar>
-  <mat-toolbar-row>
-    <button mat-mini-fab color="warn">
-      <mat-icon>local_library</mat-icon>
-    </button>
-    <h2 class="m-2">Book Cave</h2>
+  <mat-toolbar-row class="mb-2">
+    <a class="navbar-brand" routerLink="/">
+      <img src="../../../assets/img/logo.png" alt="bookcave">
+    </a>
     <span class="example-spacer"></span>
     <button mat-mini-fab [matMenuTriggerFor]="profMenu">
       <mat-icon>account_circle</mat-icon>
@@ -20,8 +19,8 @@
       <mat-icon>settings</mat-icon>
     </button>
   </mat-toolbar-row>
-  <mat-toolbar-row>
-    {{pageTitle}}
+  <mat-toolbar-row class="bg-light text-secondary ">
+    > {{pageTitle}}
     <span class="example-spacer"></span>
     <a routerLink="/store" routerLinkActive="active-link">STORE</a>
     <span class="example-icon"></span>

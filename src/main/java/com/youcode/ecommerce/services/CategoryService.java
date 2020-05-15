@@ -9,7 +9,7 @@ public interface CategoryService {
 
 	public Category findByName(String category);
 
-	public Optional<Category> getCategory(long id);
+	public Optional<Category> getCategory(Long id);
 
 	public List<Category> findAll();
 
@@ -17,7 +17,7 @@ public interface CategoryService {
 
 	public Category save(Category category);
 
-	public void delete(long id);
+	public void delete(Long id);
 
 	public List<Category> getAllCategories();
 

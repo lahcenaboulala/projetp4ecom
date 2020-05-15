@@ -40,7 +40,7 @@ public class CategoryController extends ApiController {
 	}
 
 	@PostMapping("/admin/categories/{id}")
-	public ResponseEntity<Category> addSubCategory(@PathVariable("id") int id, @RequestBody Category subCategory) {
+	public ResponseEntity<Category> addSubCategory(@PathVariable("id") Long id, @RequestBody Category subCategory) {
 		Category category = catService.getCategory(id)
 				.orElseThrow(() -> new ResourceNotFoundException("there is no category with this id"));
 		subCategory.setParentCategory(category);
@@ -50,7 +50,7 @@ public class CategoryController extends ApiController {
 	}
 
 	@DeleteMapping("/admin/categories/{id}")
-	public void deleteCategory(@PathVariable("id") int id) {
+	public void deleteCategory(@PathVariable("id") Long id) {
 		catService.delete(id);
 	}
 

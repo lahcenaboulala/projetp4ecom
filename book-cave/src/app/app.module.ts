@@ -46,6 +46,7 @@ import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { CartComponent } from './shared/cart/cart.component';
+import { EbookDetailComponent } from './shared/ebook-detail/ebook-detail.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CartComponent } from './shared/cart/cart.component';
     PaginatorComponent,
     ProfileComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    EbookDetailComponent
   ],
   imports: [
     HttpClientModule,
